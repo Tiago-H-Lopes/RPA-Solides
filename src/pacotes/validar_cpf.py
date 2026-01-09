@@ -1,5 +1,5 @@
 import re
-from . import logger
+from .logger import logger
 
 def validar_e_formatar_cpf(cpf_input):
     """
