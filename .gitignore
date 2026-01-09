@@ -16,9 +16,4 @@ venv/
 .idea/
 
 # Arquivos Temporarios
-Temp/
-downloaded_files/
-backup/
-Output/
 teste.*
-LATTES_OUTPUT*
