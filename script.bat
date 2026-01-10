@@ -1,4 +1,5 @@
 @echo off
+color 0b
 
 echo ==========================================
 echo    INICIANDO ROBO DE AJUSTE DE PONTO
