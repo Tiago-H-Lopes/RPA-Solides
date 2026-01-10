@@ -8,6 +8,12 @@ O robô foi projetado para operar de forma **totalmente automática**, podendo s
 
 ---
 
+## 🎥 Demonstração
+
+<p align="center">
+  <img src="docs/demo.gif" alt="Execução do RPA" width="800">
+</p>
+
 ## ⚙️ Funcionamento
 
 ### Comportamento Padrão
