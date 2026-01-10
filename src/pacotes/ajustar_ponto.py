@@ -44,6 +44,9 @@ def ajustar_ponto(lista_dias_ajustar: list[str]=None, horarios_ponto: list[str]=
     
     if not lista_dias_ajustar:
         today = date.today()
+        if today.weekday() > 4 :
+            logger.info('Hoje não é um dia útil, a automação não será executada')
+            return
         today = date.strftime(today, '%d/%m/%Y')
         lista_dias_ajustar = [today]
     
