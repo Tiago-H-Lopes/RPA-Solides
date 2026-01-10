@@ -29,7 +29,7 @@ Quando nenhum parâmetro adicional é informado:
 O robô também permite receber uma **lista personalizada de dias e horários**, possibilitando:
 
 - Ajustar pontos de **dias específicos**
-- Definir **horários personalizados** para cada dia informado
+- Definir **horários personalizados** (Todos os dias serão atualizados com os horários informados)
 
 Quando essa lista é fornecida, o comportamento padrão é ignorado, e o robô executa exatamente conforme os dados informados.
 
@@ -40,17 +40,39 @@ Quando essa lista é fornecida, o comportamento padrão é ignorado, e o robô e
 ```
 .
 ├── src/
-│   ├── (arquivos Python da automação)
+│   ├── main.py
+│   ├── logs
+│   ├── pacotes
+│     ├── __init__.py
+│     ├── ajustar_ponto.py
+│     ├── validar_cpf.py
+│     ├── logger.py
 │
 ├── script.bat
 ├── requirements.txt
 ├── README.md
+├── .gitignore
 ```
 
 ### Descrição dos Arquivos
 
 - **`src/`**  
   Contém todo o código-fonte Python responsável pela automação do ajuste de ponto.
+
+- **`src/main.py`**  
+  Arquivo principal do projeto, responsável por executar o processamento.
+
+- **`src/pacotes/ajustar_ponto.py`**  
+  Arquivo responsável por realizar toda a automação com Selenium, como acessar o site, realizar login e os ajustes no ponto.
+
+- **`src/pacotes/validar_cpf.py`**  
+  Arquivo responsável por formatar o cpf e verificar se a quantidade de digitos está correta.
+
+- **`src/pacotes/logger.py`**  
+  Arquivo responsável por inicializar e formatar o logger do projeto.
+
+- **`src/logs`**  
+  Pasta onde os logs da automação ficarão salvos.
 
 - **`script.bat`**  
   Script responsável por:
@@ -70,8 +92,8 @@ Antes de iniciar, certifique-se de que possui:
 
 - Sistema operacional **Windows**
 - **Python 3.9 ou superior** instalado
-- Acesso ao sistema de ponto utilizado pelo robô
-- Permissão para criar tarefas no **Agendador de Tarefas do Windows**
+- Acesso ao sistema de ponto utilizado pelo robô (Solides)
+- Permissão para criar tarefas no **Agendador de Tarefas do Windows** (Opcional para orchestração)
 
 ---
 
@@ -146,7 +168,8 @@ O `script.bat` já está preparado para ativar o ambiente virtual antes de execu
 
 - Sem lista personalizada:
   - Executa apenas no **dia atual**
-  - Apenas em **dias úteis**
+  - Apenas em **dias úteis** 
+  - Verifica os feriados para o estado de SP, para alterar basta acessar o arquivo "ajustar_ponto.py" e alterar na linha "feriados = holidays.Brazil(state="SP")"
   - Utiliza os horários padrão: `09:00`, `12:00`, `13:00`, `18:00`
 
 - Com lista personalizada:
@@ -165,6 +188,4 @@ O `script.bat` já está preparado para ativar o ambiente virtual antes de execu
 
 ## 📄 Licença
 
-Este projeto é de uso interno.
-
-Caso necessário, adicione uma licença apropriada (MIT, GPL, Proprietária, etc.).
+Este projeto está licenciado sob a licença MIT.
