@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import Select
 from datetime import date
 from time import sleep
 from . import logger, validar_e_formatar_cpf
+import holidays
 
 def ajustar_ponto(lista_dias_ajustar: list[str]=None, horarios_ponto: list[str]=None) -> None:
     """
@@ -44,9 +45,12 @@ def ajustar_ponto(lista_dias_ajustar: list[str]=None, horarios_ponto: list[str]=
     
     if not lista_dias_ajustar:
         today = date.today()
-        if today.weekday() > 4 :
+        feriados = holidays.Brazil(state="SP")
+
+        if today.weekday() > 4 or today in feriados:
             logger.info('Hoje não é um dia útil, a automação não será executada')
             return
+
         today = date.strftime(today, '%d/%m/%Y')
         lista_dias_ajustar = [today]
     
