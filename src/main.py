@@ -1,5 +1,6 @@
 from pacotes import ajustar_ponto, logger
 from datetime import date
+import sys
 
 def main() -> None:
     # Exemplo de lista de dias e horarios
@@ -14,4 +15,11 @@ def main() -> None:
     logger.info('Automação finalizada com sucesso')
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except ValueError as e:
+        logger.warning(f"Erro de validação: {e}")
+        sys.exit(2)
+    except Exception:
+        logger.exception("Erro inesperado")
+        sys.exit(1)
