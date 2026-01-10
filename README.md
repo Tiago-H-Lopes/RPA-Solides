@@ -1,5 +1,10 @@
 # RPA – Ajuste Automático de Ponto
 
+![Status](https://img.shields.io/badge/status-active-success)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Automation](https://img.shields.io/badge/RPA-Automation-orange)
+
 ## 📌 Descrição do Projeto
 
 Este projeto consiste em um **RPA (Robotic Process Automation)** desenvolvido em Python para **bater e/ou ajustar automaticamente o ponto eletrônico**.
@@ -97,7 +102,7 @@ Quando essa lista é fornecida, o comportamento padrão é ignorado, e o robô e
 Antes de iniciar, certifique-se de que possui:
 
 - Sistema operacional **Windows**
-- **Python 3.9 ou superior** instalado
+- **Python 3.10 ou superior** instalado
 - Acesso ao sistema de ponto utilizado pelo robô (Solides)
 - Permissão para criar tarefas no **Agendador de Tarefas do Windows** (Opcional para orchestração)
 
