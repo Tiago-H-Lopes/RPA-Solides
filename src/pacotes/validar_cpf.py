@@ -28,4 +28,4 @@ def validar_e_formatar_cpf(cpf_input):
         #Se não tiver 11 dígitos, o dado é inválido
         error_msg = "Erro: CPF Inválido (quantidade de dígitos incorreta)"
         logger.error(error_msg)
-        raise Exception(error_msg)
+        raise ValueError(error_msg)
